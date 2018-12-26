@@ -31,5 +31,8 @@ puts
 puts "=====keys down====22======="
 print laptop.keys
 puts
-print keyboard.keys
+print "keyboard values #{keyboard.values}"
 puts
+puts "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
+laptop.shift
+puts laptop
