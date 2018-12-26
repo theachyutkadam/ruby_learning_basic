@@ -20,3 +20,5 @@ puts "#{hash_name.key(100).equal? first_name}"
 puts "try to learning with freeze value"
 puts "#{hash_name.key(300).equal? last_name}"
 
+hash_name.clear
+puts "hash are cleared #{hash_name}"
