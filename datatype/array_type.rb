@@ -19,3 +19,8 @@ print num.rotate(1)
 puts
 print num.rotate(2)
 puts
+
+dell = ["qwerty", "abcdef", "normal", "zyxw"]
+puts dell.last
+puts dell.size
+puts dell.first
