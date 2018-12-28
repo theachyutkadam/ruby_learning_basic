@@ -22,3 +22,10 @@ puts "#{hash_name.key(300).equal? last_name}"
 
 hash_name.clear
 puts "hash are cleared #{hash_name}"
+
+
+
+first_hash = Hash.new
+puts "somthing like new concept"
+puts "#{first_hash.default}"
+puts "#{first_hash.default(100)}"
