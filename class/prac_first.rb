@@ -1,7 +1,10 @@
 $var_value = "definelabs"
 class Prac_first
 	def first_statement
-	puts "first_statement function #{$var_value}"	
+	puts "first_statement function #{$var_value}"
+	puts "========================="
+	  self
+	puts "========================="
 	end
 end
 class Prac_second
@@ -12,7 +15,7 @@ end
 
 puts "======================"
 puts
-first_class = Prac_variable.new
+first_class = Prac_first.new
 second_class = Prac_second.new
 first_class.first_statement
 second_class.second_statement
