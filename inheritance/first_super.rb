@@ -3,7 +3,7 @@ class First_super
     puts "parent class ravi #{first} and surya #{second}"
   end
 end
-class Second_class < First_super
+class Second_super < First_super
   def display(a, b)
     super
     super(a, b)
@@ -12,5 +12,5 @@ class Second_class < First_super
   end
 end
 
-obj = Second_class.new
+obj = Second_super.new
 obj.display("RK", "SK")
