@@ -11,7 +11,6 @@ puts "#{music}"
 # puts "keys of student = #{music.keys(vande matram)}"
 puts "keys of music = #{music.keys}"
 
-
 first_name = "achyut"
 last_name = "kadam".freeze
 hash_name = {first_name => 100, last_name => 300}
@@ -23,9 +22,9 @@ puts "#{hash_name.key(300).equal? last_name}"
 hash_name.clear
 puts "hash are cleared #{hash_name}"
 
-
-
 first_hash = Hash.new
 puts "somthing like new concept"
 puts "#{first_hash.default}"
 puts "#{first_hash.default(100)}"
+
+puts student[:marks]
