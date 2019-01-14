@@ -13,10 +13,13 @@ class Inside_two
    end
 end
 
+p CONST
 puts Inside_one.new.where_is_my_CONST
 puts Inside_two.new.where_is_my_CONST
+# puts Inside_one::CONST
+# puts Object::CONST
 puts Object::CONST + Inside_two::CONST
-puts Inside_two::CONST + CONST
 p "======================="
+puts Inside_two::CONST + CONST
 puts Inside_one::CONST
 puts Inside_one::CONST + Inside_two::CONST
