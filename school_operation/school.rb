@@ -30,13 +30,19 @@ class Classroom
         puts "Wrong Choice! Plz Enter the 1 to 4 "
       end
     end
-
   end
 
   def display_class
     puts "Your Class Details : "
-    @@classroom.each {|cls| puts "#{cls}"}
+    if @@classroom.nil?
+      puts "Enter first classroom details: "
+      obj_classroom = Classroom.new
+      obj_classroom.display_class
+    else
+      @@classroom.each {|cls| puts "#{cls}"}
+    end
   end
+
 end
 
 class Student
@@ -49,8 +55,8 @@ class Student
     print "Enter Student Mark(%) : "
     stud_mark = gets.chomp.to_f
     @@student_info = {stud_name: stud_name, stud_age: stud_age, stud_mark: stud_mark}
-    puts "--------------------------------"
-    @@student_info.each {|stud| puts "#{stud}"}
+    puts "-------------Student List-------------------"
+    @@student_info.each {|attri, val| puts " #{attri} = #{val}"}
     puts "--------------------------------"
     School.new.choice_number
   end
@@ -58,36 +64,32 @@ class Student
   def show_student_info
     puts "Enter Student Name"
     puts " 1 Display All Student : "
-    puts " 2 Display One Student : "
-    puts " 3 See Menu List : "
-    puts " 4 Exit : "
+    puts " 2 See Menu List : "
+    puts " 3 Exit : "
     print "Enter Your Choice : "
     n = gets.chomp.to_i
     case n
     when 1
-      @@student_info.each {|stud| puts "#{stud.values_at}"}
+      @@student_info.each {|attri, val| puts " #{attri} = #{val}"}
     when 2
-      obj_classroom = Classroom.new
-      obj_classroom.display_class
-    when 3
       obj_school_info = School.new
       obj_school_info.choice_number
-    when 4
+    when 3
       puts "Thanks You"
     else
-      if n >=5 || n <=0
+      if n >=4 || n <=0
         puts "Wrong Choice! Plz Enter the 1 to 4 "
       end
     end
   end
 end
 
-class School < Student
+class School
   puts "*****Welcome To SCHOOL PROJECT******"
   i = 0
   print "Enter your school name : "
   $school_name = gets
-  puts "The School Name is : #{$school_name}"
+  puts "The School Name is : #{$school_name.capitalize}"
   def choice_number
     puts " 1 Add New ClassRoom : "
     puts " 2 Add New Student : "
