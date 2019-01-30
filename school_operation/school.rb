@@ -47,6 +47,7 @@ end
 
 class Student
   def create_student
+    @@student_info = []
     puts "Add Student Details : "
     print "Select Student ClassRoom using 1 To #{$school_count.count} : "
     classroom_count = gets.to_i
@@ -58,7 +59,8 @@ class Student
     stud_age = gets.to_i
     print "Enter Student Mark(%) : "
     stud_mark = gets.chomp.to_f
-    @@student_info = {stud_name: stud_name, stud_age: stud_age, stud_mark: stud_mark, classroom: classroom}
+    stud_info_hash = {stud_name: stud_name, stud_age: stud_age, stud_mark: stud_mark, classroom: classroom}
+    @@student_info.push(stud_info_hash)
     puts "-------------Student List-------------------"
     @@student_info.each {|attri, val| puts " #{attri} = #{val}"}
     puts "--------------------------------"
@@ -67,6 +69,7 @@ class Student
 
   def show_student_info
     puts " 1 Display All Student : "
+    puts " 1 Display classroom student : "
     puts " 2 See Menu List : "
     puts " 3 Exit : "
     print "Enter Your Choice : "
@@ -81,7 +84,7 @@ class Student
       puts "Thanks You"
     else
       if n >=4 || n <=0
-        puts "Wrong Choice! Plz Enter the 1 to 4 "
+        puts "Wrong Choice! Plz Enter the 1 to 3 "
       end
     end
   end
