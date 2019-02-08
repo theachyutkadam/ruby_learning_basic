@@ -1,4 +1,3 @@
-p "============================= School ============================="
   class School
     def name
       p "#{@name}"
@@ -11,45 +10,34 @@ p "============================= School ============================="
   school.name = "Ruby School"
   school.name
 
-  p "============================= ClassRoom ============================="
   class ClassRoom
+    @@name = []
     def name=(name)
-      @name = []
-      @name.push(name)
+      @@name.push(name)
     end
     def name
-      p @name
+      p @@name
     end
   end
-  classroom = ClassRoom.new
+  classroom = ClassRoom.new()
   classroom.name = "Beginners"
-  classroom.name
   classroom.name = "Intermediate"
-  classroom.name
   classroom.name = "Professional"
   classroom.name
 
-  p "============================= Student ============================="
-  class Student
-    def information
-      p "#{@name}"
-      p "#{@marks}"
-      p "#{@birthdate}"
-    end
-    def name=(name)
+  class Student < ClassRoom
+    attr_accessor :name, :marks, :birthdate, :classroom
+    def initialize(name, marks, birthdate, classroom)
       @name = name
-    end
-    def marks=(marks)
       @marks = marks
-    end
-    def birthdate=(birthdate)
       @birthdate = birthdate
+      @classroom = classroom
+    end
+    def information
+      student_information = {name: @name, marks: @marks, birthdate: @birthdate, classroom: @classroom}
+      puts "#{student_information}"
     end
   end
 
-  student = Student.new
-  # student.names('achyut', '88', '1996-07-02')
-  student.name = "achyut"
-  student.marks = 88
-  student.birthdate = "1999-07-02"
+  student = Student.new('achyut', 88, '1996-07-02', 2)
   student.information
