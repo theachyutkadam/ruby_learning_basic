@@ -34,8 +34,8 @@
       @classroom = classroom
     end
     def information
-      student_information = {name: @name, marks: @marks, birthdate: @birthdate, classroom: @classroom}
-      puts "#{student_information}"
+      student_information = {name: @name, marks: @marks, birthdate: @birthdate, classroom: @@name[@classroom]}
+      student_information.each {|attribute, value| puts "#{attribute.capitalize} = #{value}"}
     end
   end
 
