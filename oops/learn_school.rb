@@ -1,13 +1,10 @@
   class School
-    def name
-      p "#{@name}"
-    end
-    def name=(name)
-      @name = name
+    attr_accessor :name
+    def initialize(name)
+      p  @name = name
     end
   end
-  school = School.new
-  school.name = "Ruby School"
+  school = School.new("Ruby School")
   school.name
 
   class ClassRoom
@@ -19,6 +16,7 @@
       p @@name
     end
   end
+
   classroom = ClassRoom.new()
   classroom.name = "Beginners"
   classroom.name = "Intermediate"
