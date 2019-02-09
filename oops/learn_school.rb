@@ -28,6 +28,8 @@
 
   class School
     def initialize(name)
+      @name = []
+      @name.push(name)
       @classrooms = []
     end
     def add_classroom(new_classroom)
@@ -43,7 +45,6 @@
       p school
     end
   end
-
   school_1 = School.new("Ruby School")
   school_1.school_details(school_1)
 
