@@ -18,11 +18,7 @@ class School
   end
 
   def show_classroom classroom_name
-    @classrooms.find do |cm|
-      if cm[:classroom] == classroom_name
-        p cm 
-      end
-    end
+    @classrooms.find { |cm| p cm if cm[:classroom] == classroom_name }
   end
 
   def show_classrooms
@@ -45,12 +41,7 @@ class ClassRoom
   end
 
   def sort_student classroom_name
-    # @@students.each { |x| p x if x == student }
-    @@students.find do |stud|
-      if stud[:classroom] == classroom_name
-        p stud
-      end
-    end
+    @@students.each { |x| p x if x == student }
   end
 end
 
@@ -110,9 +101,9 @@ while true
 
   when 6
     print "Enter Student Name: "
-    name = gets.chomp
+    name = gets.chomp.to_s
     print "Enter Student Marks: "
-    marks = gets.chomp
+    marks = gets.chomp.to_f
     print "Enter Student Birthdate e.g(YYYY-MM-DD): "
     birthdate = gets.chomp
     school.show_classrooms
