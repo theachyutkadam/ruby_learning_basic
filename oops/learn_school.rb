@@ -151,8 +151,9 @@ while true
     classroom_name = gets.chomp
     classroom.sort_student(classroom_name)
   when 0
+    p "Thank You"
     exit
   else
-    puts "Invalid Input!!!" if choice.class != Fixnum || choice < 0 || choice >= 8
+    puts "Invalid Input!!!" if choice <= -1 || choice >= 8
   end
 end
