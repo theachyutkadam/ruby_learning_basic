@@ -17,7 +17,6 @@ class School
   end
 end
 
-
 class ClassRoom
   def initialize(name)
     @name, @students = name, []
@@ -74,13 +73,11 @@ while true
     print "Show classrooms to school: \n"
     school.show_classrooms
   when "4"
-    print "Select Classroom: "
-    classroom = gets.chomp
-    print "Student Name: ".
+    print "Student Name: "
     name = gets.chomp
-    print "Student Marks: ".
+    print "Student Marks: "
     marks = gets.chomp
-    print "Student Birthdate e.g(YYYY-MM-DD): ".
+    print "Student Birthdate e.g(YYYY-MM-DD): "
     birthdate = gets.chomp
     student = Student.new(name, marks, birthdate)
     puts student
@@ -89,7 +86,7 @@ while true
     print "List Students of ClassRooms: \n"
     classroom.show_students_classroom
   when "6"
-    print "Sort Student by Name: ".
+    print "Sort Student by Name: "
     student_name = gets.chomp
     classroom.sort_student(student_name)
   when "0"
