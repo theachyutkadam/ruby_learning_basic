@@ -1,15 +1,24 @@
 class School
-  def initialize name
-    @name, @classrooms = [], []
-    @name.push(name)
+  @@school = []
+  def initialize
+    @classrooms = []
   end
 
-  def add_classroom new_classroom
-    @classrooms << new_classroom
+  def self.add(school) #create new school
+    @@school << school
+  end
+
+  def show # show school
+    @@school.each {|x| p "#{@@school.index(x)+1} = #{x}"}
+  end
+
+  def create_classroom new_classroom, school_name
+    classroom = {classroom: new_classroom, school_name: school_name}
+    @classrooms << classroom
   end
 
   def show_classroom classroom_name
-    p @classrooms.find(classroom_name)
+    @classrooms.find {|cm| p cm if cm[:classroom] == classroom_name }
   end
 
   def show_classrooms
@@ -18,20 +27,20 @@ class School
 end
 
 class ClassRoom
-  def initialize(name)
-    @name, @students = name, []
+  @@students = []
+  def initialize
   end
 
-  def add_student(new_student)
-    @students << new_student
+  def self.add_student new_student
+    @@students << new_student
   end
 
   def show_students_classroom
-    @students.each {|student| p student}
+    @@students.each {|student| p student}
   end
 
-  def sort_student(student)
-    @students.each { |x| p x if x == student }
+  def sort_student student
+    @@students.each { |x| p x if x == student }
   end
 end
 
@@ -45,34 +54,50 @@ while true
   print "----------------------------------------------------------\n\n"
   puts "Select Options"
   puts "1. Create School"
-  puts "2. Add ClassRooms to School"
-  puts "3. List ClassRooms of School"
-  puts "4. Add Students to School"
-  puts "5. List Students of ClassRooms"
-  puts "6. Sort Students as per Name"
-  # puts "5.2. Sort Students as per Marks"
-  # puts "5.3. Sort Students as Birthdate"
+  puts "2. Show School"
+  puts "3. Add ClassRooms to School"
+  puts "4. List ClassRooms of School"
+  puts "5. Find ClassRooms of School"
+  puts "6. Add Students to School"
+  puts "7. List Students of ClassRooms"
+  puts "8. Sort Students as per Name"
   puts "0. Exit\n"
 
   print "Enter your Choice: "
   choice = gets.chomp
 
   case choice
+
   when "1"
     print "Please specify school name: "
     school_name = gets.chomp
-    school = School.new(school_name)
+    school = School.new
+    School.add(school_name)
     puts "School #{school_name} created successfully..."
+
   when "2"
-    print "Add classrooms to school: "
-    classroom_name = gets.chomp
-    classroom = ClassRoom.new(classroom_name)
-    school.add_classroom(classroom)
-    puts "Classroom #{classroom_name} created successfully..."
+    puts "School Name: "
+    school.show
+
   when "3"
-    print "Show classrooms to school: \n"
-    school.show_classrooms
+    school.show
+    print "Which School to Add Classroom: "
+    school_name = gets.chomp
+    print "Enter classroom Name: "
+    classroom_name = gets.chomp
+    school.create_classroom(classroom_name, school_name)
+    puts "Classroom #{classroom_name} created successfully..."
+
   when "4"
+    school.show_classrooms
+
+  when "5"
+    school.show_classrooms
+    print "Enter Classroom Name: "
+    classroom_name = gets.chomp
+    school.show_classroom(classroom_name)
+
+  when "6"
     print "Student Name: "
     name = gets.chomp
     print "Student Marks: "
@@ -81,11 +106,14 @@ while true
     birthdate = gets.chomp
     student = Student.new(name, marks, birthdate)
     puts student
-    classroom.add_student(student)
-  when "5"
+    classroom = ClassRoom.new
+    ClassRoom.add_student(student)
+
+  when "7"
     print "List Students of ClassRooms: \n"
     classroom.show_students_classroom
-  when "6"
+
+  when "8"
     print "Sort Student by Name: "
     student_name = gets.chomp
     classroom.sort_student(student_name)
