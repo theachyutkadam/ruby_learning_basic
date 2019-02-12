@@ -12,8 +12,7 @@ class School
 
   # contructor call with parameter
   def initialize(name)
-    @name = name
-    @classrooms = []
+    @name, @classrooms = name, []
   end
 
   # create new classroom
@@ -28,25 +27,32 @@ class School
 end
 
 class Classroom
+  @@students = []
   # contructor call with parameter
   def initialize(name)
     @name = name
-    @students = []
   end
 
   # create new student
   def add_student(student)
-    @students << student
+    @@students << student
   end
 
-  # create new multiple students
-  def add_students(*args)
-    @students << args
+  # create multiple new students
+  def add_students(*students)
+    students = *students
+    students.each {|stud| @@students << stud }
+
   end
 
   # show students of selected classroom
   def list_students_by_classroom(classroom)
     classroom
+  end
+
+  # sort students by Name
+  def sort_student(student_name)
+    @@students.select {|x| p x if x == student_name }
   end
 end
 
@@ -185,3 +191,28 @@ end
     #<Student:0x0000000263d5d8 @name="satish", @age=20, @birthdate="1999-07-01">]]>
 # classroom1.list_students_by_classroom(classroom2) => #<Classroom:0x00000002702180 @name="graduation", @students=[
     #<Student:0x0000000261f920 @name="harry", @age=20, @birthdate="2000-12-24">]>
+#
+#
+# 9. Implement interface to sort Students of ClassRoom
+# --- Execute---
+#school = School.new("ruby") => #<School:0x000000018cc520 @name="ruby", @classrooms=[]>
+#School.add(school) => [#<School:0x000000018cc520 @name="ruby", @classrooms=[]>]
+#School.all => [#<School:0x000000018cc520 @name="ruby", @classrooms=[]>]
+#classroom1 = Classroom.new("beginners") => #<Classroom:0x0000000187b558 @name="beginners">
+#classroom2 = Classroom.new("graduation") => #<Classroom:0x0000000185bc58 @name="graduation">
+#school.add_classroom(classroom1) => [#<Classroom:0x0000000187b558 @name="beginners">]
+#school.add_classroom(classroom2) => [#<Classroom:0x0000000187b558 @name="beginners">,
+    #<Classroom:0x0000000185bc58 @name="graduation">]
+#school.list_classrooms => [#<Classroom:0x0000000187b558 @name="beginners">, #<Classroom:0x0000000185bc58 @name="graduation">]
+#student1 = Student.new("achyut", 23, "1996-07-02") => #<Student:0x00000001825798 @name="achyut", @age=23, @birthdate="1996-07-02">
+#student2 = Student.new("surya", 27, "1991-05-16") => #<Student:0x000000017dc2a0 @name="surya", @age=27, @birthdate="1991-05-16">
+#student3 = Student.new("satish", 20, "1999-07-01") => #<Student:0x00000001766668 @name="satish", @age=20, @birthdate="1999-07-01">
+#student4 = Student.new("harry", 20, "2000-12-24") => #<Student:0x00000001756740 @name="harry", @age=20, @birthdate="2000-12-24">
+#classroom2.add_student(student4) => [#<Student:0x00000001756740 @name="harry", @age=20, @birthdate="2000-12-24">]
+#classroom1.add_students(student1, student2, student3) => [
+    #<Student:0x00000001825798 @name="achyut", @age=23, @birthdate="1996-07-02">,
+    #<Student:0x000000017dc2a0 @name="surya", @age=27, @birthdate="1991-05-16">,
+    #<Student:0x00000001766668 @name="satish", @age=20, @birthdate="1999-07-01">]
+#classroom2.list_students_by_classroom(classroom1) => #<Classroom:0x0000000187b558 @name="beginners">
+#classroom1.list_students_by_classroom(classroom2) => #<Classroom:0x0000000185bc58 @name="graduation">
+#classroom1.sort_student(student1) => #<Student:0x00000001825798 @name="achyut", @age=23, @birthdate="1996-07-02">
