@@ -17,6 +17,10 @@ class School
   def add_classroom(classroom)
     @classrooms << classroom
   end
+
+  def list_classrooms
+    @classrooms
+  end
 end
 
 class Classroom
@@ -60,3 +64,21 @@ end
 # school.add_classroom(classroom) => [#<Classroom:0x0000000261e9f8 @name="beginners", @student=[]>]
 # classroom = Classroom.new("ruby") => <Classroom:0x000000027030f8 @name="ruby", @student=[]>
 # school = #<School:0x00000002642790 @name="ruby", @classrooms=[#<Classroom:0x0000000261e9f8 @name="beginners", @student=[]>]>
+#
+#
+# 5. Implement interface to List ClassRooms of School
+# --- Execute---
+# school = School.new("ruby") => #<School:0x0000000269d848 @name="ruby", @classrooms=[]>
+# School.add(school) => [#<School:0x0000000269d848 @name="ruby", @classrooms=[]>]
+# classroom = Classroom.new("beginners") => #<Classroom:0x0000000266ab00 @name="beginners", @student=[]>
+# classroom2 = Classroom.new("graduation") =>#<Classroom:0x00000002651cb8 @name="graduation", @student=[]>
+# school.add_classroom(classroom) => [#<Classroom:0x0000000266ab00 @name="beginners", @student=[]>]
+# school.add_classroom(classroom2) => [#<Classroom:0x0000000266ab00 @name="beginners", @student=[]>, #<Classroom:0x00000002651cb8 @name="graduation", @student=[]>]
+# classroom => #<Classroom:0x0000000266ab00 @name="beginners", @student=[]>
+# classroom2 => <Classroom:0x000000026336a0 @name="professional", @student=[]>
+# school = #<School:0x0000000269d848 @name="ruby", @classrooms=[#<Classroom:0x0000000266ab00 @name="beginners", @student=[]>,
+  #<Classroom:0x00000002651cb8 @name="graduation", @student=[]>, #<Classroom:0x000000026336a0 @name="professional", @student=[]>]>
+
+# school.list_classrooms => [#<Classroom:0x0000000266ab00 @name="beginners", @student=[]>, #<Classroom:0x00000002651cb8 @name="graduation", @student=[]>, #<Classroom:0x000000026336a0 @name="professional", @student=[]>]
+#
+#
