@@ -1,0 +1,24 @@
+Class School
+  @@schools Array[School]
+  @name String
+  @classrooms Array[Classroom]
+
+  ::all
+  ::add
+  #details
+  #add_classroom
+  #classrooms
+
+Class Classroom
+  @name String
+  @students Array[Student]
+
+  #add_student
+  #add_students
+  #students
+  #sort_students
+
+Class Student
+  @name  String
+  @marks Float
+  @birthdate date
