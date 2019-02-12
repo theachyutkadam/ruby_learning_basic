@@ -31,17 +31,22 @@ class Classroom
   # contructor call with parameter
   def initialize(name)
     @name = name
-    @student = []
+    @students = []
   end
 
   # create new student
   def add_student(student)
-    @student << student
+    @students << student
   end
 
   # create new multiple students
   def add_students(*args)
-    @student << args
+    @students << args
+  end
+
+  # show students of selected classroom
+  def list_students_by_classroom(classroom)
+    classroom
   end
 end
 
@@ -147,9 +152,36 @@ end
 # student4 = Student.new("harry", 20, "2000-12-24") => #<Student:0x00000002631c88 @name="harry", @age=20, @birthdate="2000-12-24">
 #  => 
 # classroom2.add_student(student4) => [#<Student:0x00000002631c88 @name="harry", @age=20, @birthdate="2000-12-24">]
-# classroom1.add_students(student1, student2, student3) => #<Student:0x00000002671680>
-#<Student:0x00000002653db0>
-#<Student:0x0000000263e2f8> =>
+# classroom1.add_students(student1, student2, student3) =>
+    #<Student:0x00000002671680>, #<Student:0x00000002653db0>
+    #<Student:0x0000000263e2f8> =>
     #[[<Student:0x00000002671680 @name="achyut", @age=23, @birthdate="1996-07-02">,
     #<Student:0x00000002653db0 @name="surya", @age=27, @birthdate="1991-05-16">,
     #<Student:0x0000000263e2f8 @name="satish", @age=20, @birthdate="1999-07-01">]]
+#
+#
+# 8. Implement interface to list Students of ClassRoom
+# --- Execute---
+# school = School.new("ruby") => #<School:0x00000002320558 @name="ruby", @classrooms=[]>
+# School.add(school) => [#<School:0x00000002320558 @name="ruby", @classrooms=[]>]
+# School.all => [#<School:0x00000002320558 @name="ruby", @classrooms=[]>]
+# classroom1 = Classroom.new("beginners") => #<Classroom:0x000000023088b8 @name="beginners", @students=[]>
+# classroom2 = Classroom.new("graduation") => #<Classroom:0x00000002702180 @name="graduation", @students=[]>
+# school.add_classroom(classroom1) => [#<Classroom:0x000000023088b8 @name="beginners", @students=[]>]
+# school.add_classroom(classroom2) => [#<Classroom:0x000000023088b8 @name="beginners", @students=[]>,
+    #<Classroom:0x00000002702180 @name="graduation", @students=[]>]
+# school.list_classrooms => [#<Classroom:0x000000023088b8 @name="beginners", @students=[]>, #<Classroom:0x00000002702180 @name="graduation", @students=[]>]
+# student1 = Student.new("achyut", 23, "1996-07-02") => #<Student:0x00000002673728 @name="achyut", @age=23, @birthdate="1996-07-02">
+# student2 = Student.new("surya", 27, "1991-05-16") => #<Student:0x00000002659148 @name="surya", @age=27, @birthdate="1991-05-16">
+# student3 = Student.new("satish", 20, "1999-07-01") => #<Student:0x0000000263d5d8 @name="satish", @age=20, @birthdate="1999-07-01">
+# student4 = Student.new("harry", 20, "2000-12-24") => #<Student:0x0000000261f920 @name="harry", @age=20, @birthdate="2000-12-24">
+# classroom2.add_student(student4) => [#<Student:0x0000000261f920 @name="harry", @age=20, @birthdate="2000-12-24">]
+# classroom1.add_students(student1, student2, student3) => [[#<Student:0x00000002673728 @name="achyut", @age=23, @birthdate="1996-07-02">,
+    #<Student:0x00000002659148@name="surya", @age=27, @birthdate="1991-05-16">,
+    #<Student:0x0000000263d5d8 @name="satish", @age=20, @birthdate="1999-07-01">]]
+# classroom2.list_students_by_classroom(classroom1) => #<Classroom:0x000000023088b8 @name="beginners", @students=[[
+    #<Student:0x00000002673728 @name="achyut", @age=23, @birthdate="1996-07-02">,
+    #<Student:0x00000002659148 @name="surya", @age=27, @birthdate="1991-05-16">,
+    #<Student:0x0000000263d5d8 @name="satish", @age=20, @birthdate="1999-07-01">]]>
+# classroom1.list_students_by_classroom(classroom2) => #<Classroom:0x00000002702180 @name="graduation", @students=[
+    #<Student:0x0000000261f920 @name="harry", @age=20, @birthdate="2000-12-24">]>
