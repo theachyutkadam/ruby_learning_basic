@@ -1,7 +1,7 @@
 class School
   @@schools = []
   # create new school
-  def self.add(school)
+  def self.add school
     @@schools << school
   end
 
@@ -11,12 +11,12 @@ class School
   end
 
   # contructor call with parameter
-  def initialize(name)
+  def initialize name
     @name, @classrooms = name, []
   end
 
   # create new classroom
-  def add_classroom(classroom)
+  def add_classroom classroom
     @classrooms << classroom
   end
 
@@ -29,36 +29,36 @@ end
 class Classroom
   @@students = []
   # contructor call with parameter
-  def initialize(name)
+  def initialize name
     @name = name
   end
 
   # create new student
-  def add_student(student)
+  def add_student student
     @@students << student
   end
 
   # create multiple new students
-  def add_students(*students)
+  def add_students *students
     students = *students
     students.each {|stud| @@students << stud }
 
   end
 
   # show students of selected classroom
-  def list_students_by_classroom(classroom)
+  def list_students_by_classroom classroom
     classroom
   end
 
   # sort students by Name
-  def sort_student(student_name)
+  def sort_student student_name
     @@students.select {|x| p x if x == student_name }
   end
 end
 
 class Student
   # contructor call with parameter
-  def initialize(name, age, birthdate)
+  def initialize name, age, birthdate
     @name, @age, @birthdate = name, age, birthdate
   end
 end
