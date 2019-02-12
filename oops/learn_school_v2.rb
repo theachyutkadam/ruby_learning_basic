@@ -104,7 +104,6 @@ end
 # school = #<School:0x0000000269d848 @name="ruby", @classrooms=[#<Classroom:0x0000000266ab00 @name="beginners", @student=[]>,
     #<Classroom:0x00000002651cb8 @name="graduation", @student=[]>,
     #<Classroom:0x000000026336a0 @name="professional", @student=[]>]>
-
 # school.list_classrooms => [#<Classroom:0x0000000266ab00 @name="beginners", @student=[]>, #<Classroom:0x00000002651cb8 @name="graduation", @student=[]>,
     #<Classroom:0x000000026336a0 @name="professional", @student=[]>]
 #
@@ -134,7 +133,8 @@ end
 # classroom1 => Classroom:0x000000022f3760 @name="beginners", @student=[#<Student:0x00000002671d60 @name="achyut", @age=23, @birthdate="1996-07-02">,
     #<Student:0x00000002653bd0 @name="surya", @age=27, @birthdate="1991-05-16">]>
 # classroom2 => #<Classroom:0x000000026f9fa8 @name="graduation", @student=[#<Student:0x0000000263e870 @name="satish", @age=20, @birthdate="1999-07-01">]>
-
+#
+#
 # 7. Implement interface to add n  Students in ClassRoom
 # --- Execute---
 # school = School.new("ruby") => #<School:0x00000002310298 @name="ruby", @classrooms=[]>
