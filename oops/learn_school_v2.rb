@@ -56,10 +56,10 @@ end
 # 1. Create Class Diagram with Data Types only - Done
 # 2. Add interfaces in Class Diagram - Done
 # 3. Implement interface to add School - Done
-# 4. Implement interface to add ClassRoom - uncheck
-# 5. Implement interface to List ClassRooms of School - uncheck
-# 6. Implement interface to add 1 Student in ClassRoom - uncheck
-# 7. Implement interface to add n  Students in ClassRoom
+# 4. Implement interface to add ClassRoom - uncheck Done
+# 5. Implement interface to List ClassRooms of School - uncheck Done
+# 6. Implement interface to add 1 Student in ClassRoom - uncheck Done
+# 7. Implement interface to add n  Students in ClassRoom - uncheck Done
 # 8. Implement interface to list Students of ClassRoom
 # 9. Implement interface to sort Students of ClassRoom
 
