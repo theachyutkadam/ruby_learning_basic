@@ -52,9 +52,9 @@ class Classroom
     @students.sort_by {|student| student.name}
   end
 
-  # sort students by Age
-  def sort_student_by_age
-    @students.sort_by {|student| student.age}
+  # sort students by marks
+  def sort_student_by_marks
+    @students.sort_by {|student| student.marks}
   end
 
   # sort students by Birthdate
@@ -65,9 +65,9 @@ end
 
 class Student
   # contructor call with parameter
-  attr_reader :name, :age, :birthdate
-  def initialize name, age, birthdate
-    @name, @age, @birthdate = name, age, birthdate
+  attr_reader :name, :marks, :birthdate
+  def initialize name, marks, birthdate
+    @name, @marks, @birthdate = name, marks, birthdate
   end
 end
 
