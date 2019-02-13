@@ -27,32 +27,29 @@ class School
 end
 
 class Classroom
-  @@students = []
   # contructor call with parameter
   def initialize name
-    @name = name
+    @name, @students = name, []
   end
 
   # create new student
   def add_student student
-    @@students << student
+    @students << student
   end
 
   # create multiple new students
   def add_students *students
-    students = *students
-    students.each {|stud| @@students << stud }
-
+    @students << students
   end
 
-  # show students of selected classroom
-  def list_students_by_classroom classroom
-    classroom
+  # show selected classroom students
+  def students
+    @students
   end
 
   # sort students by Name
   def sort_student student_name
-    @@students.select {|x| p x if x == student_name }
+    @students.select {|x| p x if x == student_name }
   end
 end
 
@@ -125,7 +122,7 @@ end
 # school.add_classroom(classroom2) => [#<Classroom:0x000000022f3760 @name="beginners", @student=[]>,
     #<Classroom:0x000000026f9fa8 @name="graduation", @student=[]>]
 # school.list_classrooms => [#<Classroom:0x000000022f3760 @name="beginners", @student=[]>, #<Classroom:0x000000026f9fa8 @name="graduation", @student=[]>]
-# student1 = Student.new("achyut", 23, "1996-07-02") => #<Student:0x00000002671d60 @name="achyut", @age=23, @birthdate="1996-07-02"> 
+# student1 = Student.new("achyut", 23, "1996-07-02") => #<Student:0x00000002671d60 @name="achyut", @age=23, @birthdate="1996-07-02">
 # student2 = Student.new("surya", 27, "1991-05-16") => #<Student:0x00000002653bd0 @name="surya", @age=27, @birthdate="1991-05-16">
 # student3 = Student.new("satish", 20, "1999-07-01") => #<Student:0x0000000263e870 @name="satish", @age=20, @birthdate="1999-07-01">
 # classroom1.add_student(student1) => [#<Student:0x00000002671d60 @name="achyut", @age=23, @birthdate="1996-07-02">]
@@ -156,7 +153,7 @@ end
 # student2 = Student.new("surya", 27, "1991-05-16") => #<Student:0x00000002653db0 @name="surya", @age=27, @birthdate="1991-05-16">
 # student3 = Student.new("satish", 20, "1999-07-01") => #<Student:0x0000000263e2f8 @name="satish", @age=20, @birthdate="1999-07-01">
 # student4 = Student.new("harry", 20, "2000-12-24") => #<Student:0x00000002631c88 @name="harry", @age=20, @birthdate="2000-12-24">
-#  => 
+#  =>
 # classroom2.add_student(student4) => [#<Student:0x00000002631c88 @name="harry", @age=20, @birthdate="2000-12-24">]
 # classroom1.add_students(student1, student2, student3) =>
     #<Student:0x00000002671680>, #<Student:0x00000002653db0>
@@ -185,12 +182,11 @@ end
 # classroom1.add_students(student1, student2, student3) => [[#<Student:0x00000002673728 @name="achyut", @age=23, @birthdate="1996-07-02">,
     #<Student:0x00000002659148@name="surya", @age=27, @birthdate="1991-05-16">,
     #<Student:0x0000000263d5d8 @name="satish", @age=20, @birthdate="1999-07-01">]]
-# classroom2.list_students_by_classroom(classroom1) => #<Classroom:0x000000023088b8 @name="beginners", @students=[[
-    #<Student:0x00000002673728 @name="achyut", @age=23, @birthdate="1996-07-02">,
-    #<Student:0x00000002659148 @name="surya", @age=27, @birthdate="1991-05-16">,
-    #<Student:0x0000000263d5d8 @name="satish", @age=20, @birthdate="1999-07-01">]]>
-# classroom1.list_students_by_classroom(classroom2) => #<Classroom:0x00000002702180 @name="graduation", @students=[
-    #<Student:0x0000000261f920 @name="harry", @age=20, @birthdate="2000-12-24">]>
+# classroom1.students => [[#<Student:0x000000026e7218 @name="achyut", @age=23, @birthdate="1996-07-02">,
+    #<Student:0x000000026c4d80 @name="surya", @age=27, @birthdate="1991-05-16">,
+    #<Student:0x000000026b05b0 @name="satish", @age=20, @birthdate="1999-07-01">]]
+# classroom2.students => [#<Student:0x0000000268f680 @name="harry", @age=20, @birthdate="2000-12-24">]
+
 #
 #
 # 9. Implement interface to sort Students of ClassRoom
