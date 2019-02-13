@@ -21,7 +21,7 @@ class School
   end
 
   # show classrooms
-  def list_classrooms
+  def classrooms
     @classrooms
   end
 end
@@ -39,7 +39,7 @@ class Classroom
 
   # create multiple new students
   def add_students *students
-    @students << students
+    @students.push *students
   end
 
   # show selected classroom students
@@ -48,17 +48,30 @@ class Classroom
   end
 
   # sort students by Name
-  def sort_student student_name
-    @students.select {|x| p x if x == student_name }
+  def sort_student_by_name
+    @students.sort_by {|student| student.name}
+  end
+
+  # sort students by Age
+  def sort_student_by_age
+    @students.sort_by {|student| student.age}
+  end
+
+  # sort students by Birthdate
+  def sort_student_by_birthdate
+    @students.sort_by {|student| student.birthdate}
   end
 end
 
 class Student
   # contructor call with parameter
+  attr_reader :name, :age, :birthdate
   def initialize name, age, birthdate
     @name, @age, @birthdate = name, age, birthdate
   end
 end
+
+
 
 # Assignments
 # 1. Create Class Diagram with Data Types only - Done
