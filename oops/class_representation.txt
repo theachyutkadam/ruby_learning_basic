@@ -16,7 +16,9 @@ Class Classroom
   #add_student
   #add_students
   #students
-  #sort_students
+  #sort_students_by_name
+  #sort_students_by_age
+  #sort_students_by_birthdate
 
 Class Student
   @name  String
