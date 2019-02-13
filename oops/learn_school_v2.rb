@@ -204,24 +204,70 @@ end
 #
 # 9. Implement interface to sort Students of ClassRoom
 # --- Execute---
-#school = School.new("ruby") => #<School:0x000000018cc520 @name="ruby", @classrooms=[]>
-#School.add(school) => [#<School:0x000000018cc520 @name="ruby", @classrooms=[]>]
-#School.all => [#<School:0x000000018cc520 @name="ruby", @classrooms=[]>]
-#classroom1 = Classroom.new("beginners") => #<Classroom:0x0000000187b558 @name="beginners">
-#classroom2 = Classroom.new("graduation") => #<Classroom:0x0000000185bc58 @name="graduation">
-#school.add_classroom(classroom1) => [#<Classroom:0x0000000187b558 @name="beginners">]
-#school.add_classroom(classroom2) => [#<Classroom:0x0000000187b558 @name="beginners">,
-    #<Classroom:0x0000000185bc58 @name="graduation">]
-#school.list_classrooms => [#<Classroom:0x0000000187b558 @name="beginners">, #<Classroom:0x0000000185bc58 @name="graduation">]
-#student1 = Student.new("achyut", 23, "1996-07-02") => #<Student:0x00000001825798 @name="achyut", @age=23, @birthdate="1996-07-02">
-#student2 = Student.new("surya", 27, "1991-05-16") => #<Student:0x000000017dc2a0 @name="surya", @age=27, @birthdate="1991-05-16">
-#student3 = Student.new("satish", 20, "1999-07-01") => #<Student:0x00000001766668 @name="satish", @age=20, @birthdate="1999-07-01">
-#student4 = Student.new("harry", 20, "2000-12-24") => #<Student:0x00000001756740 @name="harry", @age=20, @birthdate="2000-12-24">
-#classroom2.add_student(student4) => [#<Student:0x00000001756740 @name="harry", @age=20, @birthdate="2000-12-24">]
-#classroom1.add_students(student1, student2, student3) => [
-    #<Student:0x00000001825798 @name="achyut", @age=23, @birthdate="1996-07-02">,
-    #<Student:0x000000017dc2a0 @name="surya", @age=27, @birthdate="1991-05-16">,
-    #<Student:0x00000001766668 @name="satish", @age=20, @birthdate="1999-07-01">]
-#classroom2.list_students_by_classroom(classroom1) => #<Classroom:0x0000000187b558 @name="beginners">
-#classroom1.list_students_by_classroom(classroom2) => #<Classroom:0x0000000185bc58 @name="graduation">
-#classroom1.sort_student(student1) => #<Student:0x00000001825798 @name="achyut", @age=23, @birthdate="1996-07-02">
+#school = School.new("ruby") => #<School:0x000000027c5e78 @name="ruby", @classrooms=[]>
+#School.add(school) => #<School:0x000000027c5e78 @name="ruby", @classrooms=[]>]
+#School.all => [#<School:0x000000027c5e78 @name="ruby", @classrooms=[]>]
+#classroom1 = Classroom.new("beginners") => #<Classroom:0x0000000279a1b0 @name="beginners", @students=[]>
+#classroom2 = Classroom.new("graduation") => #<Classroom:0x00000002786610 @name="graduation", @students=[]>
+#school.add_classroom(classroom1) => [#<Classroom:0x0000000279a1b0 @name="beginners", @students=[]>]
+#school.add_classroom(classroom2) =>
+    #<Classroom:0x0000000279a1b0 @name="beginners", @students=[]>
+    #<Classroom:0x00000002786610 @name="graduation", @students=[]>]
+#school.list_classrooms =>
+    #<Classroom:0x0000000279a1b0 @name="beginners", @students=[]>
+    #<Classroom:0x00000002786610 @name="graduation", @students=[]>]
+
+#student1 = Student.new("achyut", 01, "1996-07-02") => #<Student:0x00000002744fd0 @name="achyut", @age=1, @birthdate="1996-07-02">
+#student2 = Student.new("surya", 49, "1991-06-16") => #<Student:0x00000002727638 @name="surya", @age=49, @birthdate="1991-06-16">
+#student3 = Student.new("satish", 59, "1999-12-01") => #<Student:0x00000002711630 @name="satish", @age=59, @birthdate="1999-12-01">
+#student4 = Student.new("bhalu", 20, "1991-03-24") => #<Student:0x000000026f3978 @name="bhalu", @age=20, @birthdate="1991-03-24">
+#student5 = Student.new("chandu", 60, "1900-01-15") => #<Student:0x000000026d01d0 @name="chandu", @age=60, @birthdate="1900-01-15">
+#student6 = Student.new("datta", 67, "1995-02-08") => #<Student:0x000000026b3030 @name="datta", @age=67, @birthdate="1995-02-08">
+#student7 = Student.new("datta", 87, "1993-08-14") => #<Student:0x00000002699a90 @name="datta", @age=87, @birthdate="1993-08-14">
+#student8 = Student.new("avinash", 54, "1994-05-31") => #<Student:0x0000000267b8b0 @name="avinash", @age=54, @birthdate="1994-05-31">
+#student9 = Student.new("dipak", 45, "2000-11-28") => #<Student:0x000000026626d0 @name="dipak", @age=45, @birthdate="2000-11-28">
+
+#classroom2.add_student(student4) => #<Student:0x000000026f3978 @name="bhalu", @age=20, @birthdate="1991-03-24">]
+#classroom1.add_students(student5, student3, student2, student4, student1, student8, student7, student6, student9)
+#<Student:0x000000026d01d0 @name="chandu", @age=60, @birthdate="1900-01-15">
+#<Student:0x00000002711630 @name="satish", @age=59, @birthdate="1999-12-01">
+#<Student:0x00000002727638 @name="surya", @age=49, @birthdate="1991-06-16">
+#<Student:0x000000026f3978 @name="bhalu", @age=20, @birthdate="1991-03-24">
+#<Student:0x00000002744fd0 @name="achyut", @age=1, @birthdate="1996-07-02">
+#<Student:0x0000000267b8b0 @name="avinash", @age=54, @birthdate="1994-05-31">
+#<Student:0x00000002699a90 @name="datta", @age=87, @birthdate="1993-08-14">
+#<Student:0x000000026b3030 @name="datta", @age=67, @birthdate="1995-02-08">
+#<Student:0x000000026626d0 @name="dipak", @age=45, @birthdate="2000-11-28">
+
+#classroom1.sort_student_by_name =>
+#<Student:0x00000002744fd0 @name="achyut", @age=1, @birthdate="1996-07-02">
+#<Student:0x0000000267b8b0 @name="avinash", @age=54, @birthdate="1994-05-31">
+#<Student:0x000000026f3978 @name="bhalu", @age=20, @birthdate="1991-03-24">
+#<Student:0x000000026d01d0 @name="chandu", @age=60, @birthdate="1900-01-15">
+#<Student:0x00000002699a90 @name="datta", @age=87, @birthdate="1993-08-14">
+#<Student:0x000000026b3030 @name="datta", @age=67, @birthdate="1995-02-08">
+#<Student:0x000000026626d0 @name="dipak", @age=45, @birthdate="2000-11-28">
+#<Student:0x00000002711630 @name="satish", @age=59, @birthdate="1999-12-01">
+#<Student:0x00000002727638 @name="surya", @age=49, @birthdate="1991-06-16">]
+#
+#classroom1.sort_student_by_age =>
+#<Student:0x00000002744fd0 @name="achyut", @age=1, @birthdate="1996-07-02">
+#<Student:0x000000026f3978 @name="bhalu", @age=20, @birthdate="1991-03-24">
+#<Student:0x000000026626d0 @name="dipak", @age=45, @birthdate="2000-11-28">
+#<Student:0x00000002727638 @name="surya", @age=49, @birthdate="1991-06-16">
+#<Student:0x0000000267b8b0 @name="avinash", @age=54, @birthdate="1994-05-31">
+#<Student:0x00000002711630 @name="satish", @age=59, @birthdate="1999-12-01">
+#<Student:0x000000026d01d0 @name="chandu", @age=60, @birthdate="1900-01-15">
+#<Student:0x000000026b3030 @name="datta", @age=67, @birthdate="1995-02-08">
+#<Student:0x00000002699a90 @name="datta", @age=87, @birthdate="1993-08-14">
+#
+#classroom1.sort_student_by_birthdate
+#<Student:0x000000026d01d0 @name="chandu", @age=60, @birthdate="1900-01-15">
+#<Student:0x000000026f3978 @name="bhalu", @age=20, @birthdate="1991-03-24">
+#<Student:0x00000002727638 @name="surya", @age=49, @birthdate="1991-06-16">
+#<Student:0x00000002699a90 @name="datta", @age=87, @birthdate="1993-08-14">
+#<Student:0x0000000267b8b0 @name="avinash", @age=54, @birthdate="1994-05-31">
+#<Student:0x000000026b3030 @name="datta", @age=67, @birthdate="1995-02-08">
+#<Student:0x00000002744fd0 @name="achyut", @age=1, @birthdate="1996-07-02">
+#<Student:0x00000002711630 @name="satish", @age=59, @birthdate="1999-12-01">
+#<Student:0x000000026626d0 @name="dipak", @age=45, @birthdate="2000-11-28">]
