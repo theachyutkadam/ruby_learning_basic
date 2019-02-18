@@ -27,6 +27,7 @@ class School
 end
 
 class Classroom
+  attr_reader :name
   # contructor call with parameter
   def initialize name
     @name, @students = name, []
@@ -70,8 +71,6 @@ class Student
     @name, @marks, @birthdate = name, marks, birthdate
   end
 end
-
-
 
 # Assignments
 # 1. Create Class Diagram with Data Types only - Done
