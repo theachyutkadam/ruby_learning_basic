@@ -22,14 +22,17 @@ class Truck < Vehicle
   end
 end
 class Car < Vehicle
+  def steer
+    puts "Turn front 2 wheels."
+  end
 end
 class Motorcycle < Vehicle
 end
 
 
 
-truck = Truck.new()
-car = Car.new()
+truck = Truck.new("10 tire")
+car = Car.new.steer
 
 truck.accelerate
 truck.steer
