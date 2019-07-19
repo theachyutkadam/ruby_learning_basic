@@ -1,0 +1,6 @@
+Public Method = This method is call only on class object, and call within the another method, and by default all methods are public
+
+Private Method = This method are not call on class object or self keyword, if you call on class object then show error "protected method"
+                 we are call pricate method using the another instance method or, send method
+
+Protected Method =This method call on self keyword and call using another instance methods
