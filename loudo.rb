@@ -6,6 +6,8 @@ class String
   def magenta; "\e[35m#{self}\e[0m" end
 end
 
+puts "THIS IS THE TESTING PROGRAM BY AJIT "
+
 $count = 1
 $round = 1
 $players = ["achyut", "ravi", "priya", "omkar"]
