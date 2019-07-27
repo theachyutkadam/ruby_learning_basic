@@ -25,6 +25,7 @@ class School
     @classrooms.each {|classroom| p classroom }
   end
 end
+end
 
 class ClassRoom
   @@students = []
