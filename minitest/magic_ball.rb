@@ -27,17 +27,15 @@ class MagicBall
     ANSWERS.sample
   end
 
+  def self.world
+    'new_world'
+  end
+
   def addition a, b
-  #   raise "Addition arguments are invalid." unless check_is_addition_arguments_number?(a, b)
-  #   a + b
-  return 0
+    return 0
   end
 
   private
-
-  # def check_is_addition_arguments_number?(a, b)
-  #   a.is_a?(String) || b.is_a?(String)
-  # end
 
   def is_question_valid?(question)
     question.is_a?(String) && question[-1] == "?"
